@@ -1,0 +1,21 @@
+:host {
+  display: block;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+a {
+  color: #1750a5;
+}
+
+nav a.active {
+  font-weight: bold;
+}

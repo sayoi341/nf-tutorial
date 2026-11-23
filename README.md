@@ -2,12 +2,24 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.3.0.
 
+## Setup
+
+Install Node.js 24.x (24.15.0 or newer) or Node.js 26+, then install [pnpm 12.18.0](https://pnpm.io/installation) (the version pinned in `package.json`).
+Then install dependencies using the committed lockfile:
+
+```bash
+pnpm install --frozen-lockfile
+```
+
+This workspace contains the `shell` and `mfe1` applications. The commands below
+use `shell`; replace it with `mfe1` to work on the other application.
+
 ## Development server
 
 To start a local development server, run:
 
 ```bash
-ng serve
+pnpm start shell
 ```
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
@@ -17,13 +29,13 @@ Once the server is running, open your browser and navigate to `http://localhost:
 Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
 ```bash
-ng generate component component-name
+pnpm ng generate component component-name --project shell
 ```
 
 For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
 
 ```bash
-ng generate --help
+pnpm ng generate --help
 ```
 
 ## Building
@@ -31,7 +43,7 @@ ng generate --help
 To build the project run:
 
 ```bash
-ng build
+pnpm build shell
 ```
 
 This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
@@ -41,7 +53,7 @@ This will compile your project and store the build artifacts in the `dist/` dire
 To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
 
 ```bash
-ng test
+pnpm test shell --watch=false
 ```
 
 ## Running end-to-end tests
@@ -49,7 +61,7 @@ ng test
 For end-to-end (e2e) testing, run:
 
 ```bash
-ng e2e
+pnpm ng e2e shell
 ```
 
 Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
