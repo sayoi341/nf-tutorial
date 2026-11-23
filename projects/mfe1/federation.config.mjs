@@ -1,3 +1,4 @@
+import { fileURLToPath } from 'node:url';
 import {
   withNativeFederation,
   fromPackageJson,
@@ -10,12 +11,15 @@ export default withNativeFederation({
     './Component': './projects/mfe1/src/app/app.ts',
   },
 
-  shared: fromPackageJson({
-    singleton: true,
-    strictVersion: true,
-    requiredVersion: 'auto',
-    build: 'package',
-  }).patch(['@angular/*'], { includeSecondaries: { keepAll: true } }),
+  shared: fromPackageJson(
+    {
+      singleton: true,
+      strictVersion: true,
+      requiredVersion: 'auto',
+      build: 'package',
+    },
+    fileURLToPath(new URL('.', import.meta.url)),
+  ).patch(['@angular/*'], { includeSecondaries: { keepAll: true } }),
 
   skip: ['rxjs/ajax', 'rxjs/fetch', 'rxjs/testing', 'rxjs/webSocket'],
 

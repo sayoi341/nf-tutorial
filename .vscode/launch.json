@@ -3,18 +3,28 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "ng serve",
+      "name": "Debug shell + mfe1",
       "type": "chrome",
       "request": "launch",
-      "preLaunchTask": "pnpm: start",
-      "url": "http://localhost:4200/"
+      "preLaunchTask": "pnpm: start both",
+      "url": "http://localhost:4200/flights",
+      "webRoot": "${workspaceFolder}"
     },
     {
-      "name": "ng test",
+      "name": "Debug shell",
       "type": "chrome",
       "request": "launch",
-      "preLaunchTask": "pnpm: test",
-      "url": "http://localhost:9876/debug.html"
+      "preLaunchTask": "pnpm: start shell",
+      "url": "http://localhost:4200/",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "name": "Debug mfe1",
+      "type": "chrome",
+      "request": "launch",
+      "preLaunchTask": "pnpm: start mfe1",
+      "url": "http://localhost:4201/",
+      "webRoot": "${workspaceFolder}"
     }
   ]
 }

@@ -3,10 +3,10 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "pnpm: start",
+      "label": "pnpm: start shell",
       "type": "shell",
       "command": "pnpm",
-      "args": ["run", "start", "shell"],
+      "args": ["--filter", "@mf-tutorial/shell", "start"],
       "isBackground": true,
       "problemMatcher": {
         "owner": "typescript",
@@ -17,16 +17,16 @@
             "regexp": "Changes detected"
           },
           "endsPattern": {
-            "regexp": "bundle generation (complete|failed)"
+            "regexp": "Local:.*http://localhost:4200/"
           }
         }
       }
     },
     {
-      "label": "pnpm: test",
+      "label": "pnpm: start mfe1",
       "type": "shell",
       "command": "pnpm",
-      "args": ["run", "test", "shell"],
+      "args": ["--filter", "@mf-tutorial/mfe1", "start"],
       "isBackground": true,
       "problemMatcher": {
         "owner": "typescript",
@@ -37,10 +37,16 @@
             "regexp": "Changes detected"
           },
           "endsPattern": {
-            "regexp": "bundle generation (complete|failed)"
+            "regexp": "Local:.*http://localhost:4201/"
           }
         }
       }
+    },
+    {
+      "label": "pnpm: start both",
+      "dependsOn": ["pnpm: start shell", "pnpm: start mfe1"],
+      "dependsOrder": "parallel",
+      "problemMatcher": []
     }
   ]
 }

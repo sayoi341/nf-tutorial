@@ -1,0 +1,24 @@
+{
+  "name": "@mf-tutorial/mfe1",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "ng serve mfe1",
+    "serve": "ng serve mfe1",
+    "build": "ng build mfe1 --configuration production",
+    "watch": "ng build mfe1 --watch --configuration development",
+    "test": "ng test mfe1"
+  },
+  "dependencies": {
+    "@angular/common": "^22.3.0",
+    "@angular/compiler": "^22.3.0",
+    "@angular/core": "^22.3.0",
+    "@angular/forms": "^22.3.0",
+    "@angular/platform-browser": "^22.3.0",
+    "@angular/router": "^22.3.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "es-module-shims": "^2.8.0",
+    "@angular-architects/native-federation": "^22.2.5"
+  }
+}

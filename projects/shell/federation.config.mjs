@@ -1,3 +1,4 @@
+import { fileURLToPath } from 'node:url';
 import {
   withNativeFederation,
   fromPackageJson,
@@ -8,12 +9,15 @@ export default withNativeFederation({
 
   //shareScope: autoShareScope({level: 'minor'}),
 
-  shared: fromPackageJson({
-    singleton: true,
-    strictVersion: true,
-    requiredVersion: 'auto',
-    build: 'package',
-  }).patch(['@angular/*'], { includeSecondaries: { keepAll: true } }),
+  shared: fromPackageJson(
+    {
+      singleton: true,
+      strictVersion: true,
+      requiredVersion: 'auto',
+      build: 'package',
+    },
+    fileURLToPath(new URL('.', import.meta.url)),
+  ).patch(['@angular/*'], { includeSecondaries: { keepAll: true } }),
 
   //sharedMappings: mappingsFromWorkspace({ singleton: true }).filter(['@my-org/*']).get(),
 
